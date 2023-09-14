@@ -2,29 +2,11 @@
   "users": [
     {
       "username": "hmd",
-      "password": "$2a$10$Pm.ckwtGZETyphsVMEtDmOsfF9VI6S2B2QZgszi.fsdVIHgidGkSm",
-      "image": "1694519814816-737682786.png",
+      "password": "$2a$10$ow8FkcPuFxu7LmsI2y7.7.wi0ZOz7u4N5v7OGEj.YzUcf7ZiqG0mu",
+      "image": "1694637214915-334771092.png",
+      "userId": "b0a03673-a04a-4124-bf61-5b026afed6e1",
       "id": 1
-    },
-    {
-      "username": "nawfal",
-      "password": "$2a$10$w6Eux1XMnZzqmnaqyuvd4OCl5DvaRaZiGG9zSRVYDVfkxvNaI1Lvy",
-      "image": "1694520324380-916230079.png",
-      "id": 2
     }
   ],
-  "blogs": [
-    {
-      "id": 1,
-      "title": "Blog Title 1",
-      "content": "Blog Content 1",
-      "userId": 1
-    },
-    {
-      "id": 2,
-      "title": "Blog Title 2",
-      "content": "Blog Content 2",
-      "userId": 2
-    }
-  ]
+  "blogs": []
 }

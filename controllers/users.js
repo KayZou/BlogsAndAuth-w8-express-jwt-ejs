@@ -6,15 +6,18 @@ const fs = require("fs");
 const path = require("path");
 const cookies = require("cookie-parser");
 const multer = require("multer");
+const { v4: uuidv4 } = require('uuid');
 
 const createUser = async (req, res) => {
   const { username, password } = req.body;
   const image = req.file.filename;
   const hashedPassword = await bcrypt.hash(password, 10);
+  const userId = uuidv4();
   const response = await axios.post("http://localhost:3000/users", {
     username: username,
     password: hashedPassword,
     image,
+    userId,
   });
   res.redirect("/users/login");
 };
@@ -29,7 +32,8 @@ const authenticateUser = async (req, res) => {
     const db = JSON.parse(data);
 
     const user = db.users.find((user) => user.username === username);
-
+    const userId = user.id;
+    req.session.userId = userId;
     if (!user) {
       console.log("User not found");
       return res.status(401).json({ message: "Invalid credentials" });
@@ -43,7 +47,7 @@ const authenticateUser = async (req, res) => {
     }
 
     const token = jwt.sign(
-      { id: user.id, username: user.username, image: user.image },
+      { id: user.userId, username: user.username, image: user.image },
       process.env.JWT_SECRET_KEY
     );
 

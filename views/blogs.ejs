@@ -1,0 +1,35 @@
+<!-- views/blogs.ejs -->
+
+<html>
+  <head>
+    <title>Blog List</title>
+    <!-- Include Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h1>Blog List</h1>
+      <ul class="list-group">
+        <% blogs.forEach(blog => { %>
+        <li class="list-group-item">
+          <h2><%= blog.title %></h2>
+          <p><%= blog.content %></p>
+
+          <% if (user === blog.userId) { %>
+          <!-- Show Edit and Delete buttons -->
+          <a href="/blogs/edit/<%= blog.id %>" class="btn btn-primary">Edit</a>
+          <a href="/blogs/delete/<%= blog.id %>" class="btn btn-danger"
+            >Delete</a
+          >
+          <% } %>
+        </li>
+        <% }); %>
+      </ul>
+    </div>
+  </body>
+</html>
+
+

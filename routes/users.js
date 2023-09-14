@@ -22,7 +22,7 @@ router.post("/register", upload.single("image"), userController.createUser);
 
 router.post("/login", userController.authenticateUser);
 
-router.get("/register", (req, res) => {
+router.get("/register", jwtToken.checkAuth, (req, res) => {
   res.render("register");
 });
 
