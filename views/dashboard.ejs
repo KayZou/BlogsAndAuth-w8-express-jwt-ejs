@@ -23,7 +23,11 @@
     <div class="container mt-5">
       <h2>Add a New Blog</h2>
       <!-- enctype="multipart/form-data" -->
-      <form method="POST" action="/blogs/createBlog">
+      <form
+        method="POST"
+        action="/blogs/createBlog"
+        enctype="multipart/form-data"
+      >
         <!-- Blog Title -->
         <div class="form-group">
           <label for="title">Title</label>
@@ -51,7 +55,7 @@
         </div>
 
         <!-- Blog Image -->
-        <!-- <div class="form-group">
+        <div class="form-group">
           <label for="image">Upload an Image</label>
           <input
             type="file"
@@ -59,8 +63,8 @@
             id="image"
             name="image"
             accept=".jpg, .jpeg, .png"
-          >
-        </div> -->
+          />
+        </div>
 
         <!-- Submit Button -->
         <button type="submit" class="btn btn-primary">Submit</button>

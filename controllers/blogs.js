@@ -17,12 +17,14 @@ const createBlog = (req, res) => {
   try {
     const { title, content } = req.body;
     const userId = req.userId;
+    const image = req.file.filename;
     const blogId = uuidv4();
     // console.log(req.body);
     const newBlog = {
       title,
       content,
       userId,
+      image,
       blogId,
     };
     axios

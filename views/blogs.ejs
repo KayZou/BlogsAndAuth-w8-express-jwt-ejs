@@ -8,6 +8,12 @@
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     />
+    <style>
+      .blog-image {
+        max-width: 100%;
+        height: auto;
+      }
+    </style>
   </head>
   <body>
     <div class="container mt-5">
@@ -16,6 +22,14 @@
         <% blogs.forEach(blog => { %>
         <li class="list-group-item">
           <h2><%= blog.title %></h2>
+          <!-- Display the blog image -->
+          <% if (blog.image) { %>
+            <img
+              src="/uploads/<%= blog.image %>"
+              alt="Blog Image"
+              class="blog-image"
+            />
+            <% } %>
           <p><%= blog.content %></p>
 
           <% if (user === blog.userId) { %>
@@ -31,5 +45,3 @@
     </div>
   </body>
 </html>
-
-

@@ -2,27 +2,62 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Edit Blog</title>
-  <!-- Include Bootstrap CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-</head>
-<body>
-  <div class="container mt-5">
-    <h1 class="mb-4">Edit Blog</h1>
-    <form method="POST" action="/blogs/edit/<%= blog.id %>">
-      <div class="form-group">
-        <label for="title">Title:</label>
-        <input type="text" class="form-control" id="title" name="title" value="<%= blog.title %>">
-      </div>
-      <div class="form-group">
-        <label for="content">Content:</label>
-        <textarea class="form-control" id="content" name="content" rows="6"><%= blog.content %></textarea>
-      </div>
-      <button type="submit" class="btn btn-primary">Save Changes</button>
-    </form>
-  </div>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Blog</title>
+    <!-- Include Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h1 class="mb-4">Edit Blog</h1>
+      <form method="POST" action="/blogs/edit/<%= blog.id %>">
+        <!-- Existing Image Display -->
+        <div class="form-group">
+          <label for="currentImage">Current Image:</label>
+          <% if (blog.image) { %>
+          <img
+            src="/uploads/<%= blog.image %>"
+            alt="Current Image"
+            class="img-thumbnail"
+          />
+          <% } else { %>
+          <p>No image available</p>
+          <% } %>
+        </div>
+
+        <!-- Upload New Image -->
+        <div class="form-group">
+          <label for="newImage">Upload New Image:</label>
+          <input
+            type="file"
+            class="form-control-file"
+            id="newImage"
+            name="newImage"
+          />
+        </div>
+        <div class="form-group">
+          <label for="title">Title:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="title"
+            name="title"
+            value="<%= blog.title %>"
+          />
+        </div>
+        <div class="form-group">
+          <label for="content">Content:</label>
+          <textarea class="form-control" id="content" name="content" rows="6">
+<%= blog.content %></textarea
+          >
+        </div>
+        <button type="submit" class="btn btn-primary">Save Changes</button>
+      </form>
+    </div>
+  </body>
 </html>
